@@ -426,3 +426,33 @@ $(document).ready(function () {
     section.appendTo(content).before('<hr class="secondary-hr">');
   }
 });
+
+    function isIOS() {    
+        var ua = navigator.userAgent.toLowerCase();
+
+        //Lista de dispositivos que acessar
+        var iosArray = ['iphone', 'ipod'];
+
+        var isApple = false;
+
+        //valida seu array
+        iosArray.forEach(function(item){
+
+            if (ua.indexOf(iosArray[item]) != -1){
+            isApple = true;
+            }
+
+        });
+
+        return isApple;
+    }
+
+    if(isIOS()){
+        
+        $('seu seletor').css({
+        'left': '-22px',
+        'position': 'absolute',
+        'top': '-126px'
+        });
+    }
+
