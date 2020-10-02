@@ -430,29 +430,22 @@ $(document).ready(function () {
     function isIOS() {    
         var ua = navigator.userAgent.toLowerCase();
 
+        var uMobile = '';
+
         //Lista de dispositivos que acessar
-        var iosArray = ['iphone', 'ipod'];
+        uMobile = '';
+        uMobile += 'iphone;ipod;android';
 
+        //Separa os itens em arrays
+        v_uMobile = uMobile.split(';');
+
+        //verifica se vocÃª estÃ¡ acessando pelo celular
         var isApple = false;
-
-        //valida seu array
-        iosArray.forEach(function(item){
-
-            if (ua.indexOf(iosArray[item]) != -1){
-            isApple = true;
+        for (i=0;i<=v_uMobile.length;i++){
+            if (ua.indexOf(v_uMobile[i]) != -1){
+    	       isApple = true;
             }
+        }
 
-        });
-
-        return isApple;
-    }
-
-    if(isIOS()){
-        
-        $('seu seletor').css({
-        'left': '-22px',
-        'position': 'absolute',
-        'top': '-126px'
-        });
-    }
+        alert('is apple:' + isApple)
 
